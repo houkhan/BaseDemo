@@ -3,7 +3,7 @@ buildscript {
     apply from: 'config.gradle'
 
     repositories {
-        google()
+        maven { url 'https://maven.aliyun.com/repository/google' }
         mavenCentral()
     }
     dependencies {
