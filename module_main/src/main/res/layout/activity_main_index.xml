@@ -14,5 +14,5 @@
     <com.hzsoft.lib.common.widget.TabBarView
         android:id="@+id/tab_bar_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_57" />
+        android:layout_height="58dp" />
 </androidx.appcompat.widget.LinearLayoutCompat>

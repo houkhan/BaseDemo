@@ -27,6 +27,7 @@ ext {
                     libs.skeleton,
                     libs.shimmerlayout,
                     libs.eventbus,
+                    libs.AndroidAutoSize,
             ],
             implementations: [],
             kapt           : [],
