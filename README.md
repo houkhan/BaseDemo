@@ -1,12 +1,11 @@
 # BaseDemo
 
 ## 介绍 
-``
-本文参考 BaseDemo 修改 部分功能
-1.删除dataBinding
-2.屏幕适配 删除 dimens.xml 引入 AndroidAutoSize
-3.主model 修改为 app
-``
+
+### 本文参考 BaseDemo 修改 部分功能
+- 1.删除dataBinding
+- 2.屏幕适配 删除 dimens.xml 引入 AndroidAutoSize
+- 3.主model 修改为 app
 
 🔥🔥🔥 BaseDemo 是Android MVVM + Retrofit + OkHttp + Coroutine 协程 + ViewBinding & DataBinding + Room + 组件化架构的Android应用开发规范化架构，通过不断的升级迭代，目前主要分为两个版本，分别为分支 MVVM+Databinding 组件化版本，分支MVVM+Databinding+Single 单体版本。旨在帮助您快速构建属于自己的APP项目架构，做到快速响应上手，另外再长期的实践经验中汇总了大量的使用工具类，主要放在了项目 `lib_common`组件中，以供大家参考使用。具体使用请开发者工具自己项目需求决定选择如何使用。
 
