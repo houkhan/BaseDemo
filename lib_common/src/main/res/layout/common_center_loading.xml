@@ -10,24 +10,24 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingHorizontal="@dimen/dp_30"
-        android:paddingVertical="@dimen/dp_28">
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="28dp">
 
         <com.hzsoft.lib.common.widget.LoadingView
             android:id="@+id/load_view"
-            android:layout_width="@dimen/dp_34"
-            android:layout_height="@dimen/dp_34" />
+            android:layout_width="34dp"
+            android:layout_height="34dp" />
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginTop="8dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:paddingHorizontal="@dimen/dp_12"
+            android:paddingHorizontal="12dp"
             android:textColor="@color/color_EEEEEE"
-            android:textSize="@dimen/sp_14"
+            android:textSize="14sp"
             android:visibility="gone" />
     </LinearLayout>
 

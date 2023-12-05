@@ -62,6 +62,6 @@ ext {
             shimmerlayout    : "io.supercharge:shimmerlayout:2.1.0",
             eventbus         : "org.greenrobot:eventbus:3.3.1",
             leakcanary       : "com.squareup.leakcanary:leakcanary-android:2.10",
-            junit            : "junit:junit:4.13.2",
+            autosize         : "me.jessyan:autosize:1.2.1",
     ]
 }

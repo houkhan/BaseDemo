@@ -18,5 +18,4 @@ dependencies {
     Depends.implementations.each { implementation it }
     Depends.kapt.each { kapt it }
     Depends.compileOnly.each { compileOnly it }
-    Depends.testImplementations.each { testImplementation it }
 }
