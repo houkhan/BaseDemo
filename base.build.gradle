@@ -16,8 +16,6 @@ android {
         targetSdkVersion rootProject.ext.targetVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
 
@@ -50,11 +48,9 @@ dependencies {
             implementations    : rootProject.ext.baseBuildDepends.implementations,
             kapt               : rootProject.ext.baseBuildDepends.kapt,
             compileOnly        : rootProject.ext.baseBuildDepends.compile,
-            testImplementations: rootProject.ext.baseBuildDepends.testImpl,
     ]
     Depends.apis.each { api it }
     Depends.implementations.each { implementation it }
     Depends.kapt.each { kapt it }
     Depends.compileOnly.each { compileOnly it }
-    Depends.testImplementations.each { testImplementation it }
 }
