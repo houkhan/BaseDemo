@@ -17,7 +17,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "BaseDemo"
-include ':module_me'
+include ':module_mine'
 include ':module_home'
 include ':module_main'
 include ':lib_log'
