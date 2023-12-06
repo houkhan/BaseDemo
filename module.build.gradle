@@ -30,10 +30,8 @@ dependencies {
             apis               : rootProject.ext.moduleBuildDepends.api,
             implementations    : rootProject.ext.moduleBuildDepends.implementations,
             kapt               : rootProject.ext.moduleBuildDepends.kapt,
-            compileOnly        : rootProject.ext.moduleBuildDepends.compile,
     ]
     Depends.apis.each { api it }
     Depends.implementations.each { implementation it }
     Depends.kapt.each { kapt it }
-    Depends.compileOnly.each { compileOnly it }
 }
