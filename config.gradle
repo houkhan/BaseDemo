@@ -31,18 +31,12 @@ ext {
             ],
             implementations: [],
             kapt           : [],
-            compile        : [],
-            testImpl       : [
-                    libs.junit,
-            ],
     ]
 
     baseModuleDepends = [
             api            : [],
             implementations: [],
             kapt           : [],
-            compile        : [],
-            testImpl       : [],
     ]
 
     commonDepends = [
@@ -54,8 +48,6 @@ ext {
             kapt           : [
                     libs.glide.compiler,
             ],
-            compile        : [],
-            testImpl       : [],
             debugApi       : [
                     libs.leakcanary,
             ],
@@ -65,8 +57,6 @@ ext {
             api            : [],
             implementations: [],
             kapt           : [],
-            compile        : [],
-            testImpl       : [],
     ]
 
     imagePickerDepends = [
@@ -79,8 +69,6 @@ ext {
             kapt           : [
                     libs.glide.compiler,
             ],
-            compile        : [],
-            testImpl       : [],
     ]
 
     netDepends = [
@@ -96,8 +84,6 @@ ext {
             kapt           : [
                     libs.androidx.room.room_compiler,
             ],
-            compile        : [],
-            testImpl       : [],
     ]
 
     // module.build.gradle
@@ -105,8 +91,6 @@ ext {
             api            : [],
             implementations: [],
             kapt           : [],
-            compile        : [],
-            testImpl       : [],
     ]
 
     // base.build.gradle
@@ -117,10 +101,6 @@ ext {
             implementations: [],
             kapt           : [
                     libs.arouter.compiler,
-            ],
-            compile        : [],
-            testImpl       : [
-                    libs.junit,
             ],
     ]
 

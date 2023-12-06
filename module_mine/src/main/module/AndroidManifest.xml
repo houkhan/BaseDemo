@@ -7,7 +7,7 @@
         android:name="debug.MeApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/module_me"
+        android:label="@string/module_mine"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
