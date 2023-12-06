@@ -68,21 +68,6 @@ ext {
                     kapt           : [],
             ]
 
-    imagePickerDepends =
-            [
-                    api            :
-                            [
-                                    libs.androidx.appcompat,
-                                    libs.google.material,
-                                    libs.glide.core,
-                            ],
-                    implementations: [],
-                    kapt           :
-                            [
-                                    libs.glide.compiler,
-                            ],
-            ]
-
     netDepends =
             [
                     api            :
