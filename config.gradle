@@ -76,14 +76,9 @@ ext {
                                     libs.retrofit2.retrofit2,
                                     libs.retrofit2.converter_gson,
                                     libs.retrofit2.logging_interceptor,
-                                    libs.androidx.room.core,
-                                    libs.androidx.room.room_ktx,
                             ],
                     implementations: [],
-                    kapt           :
-                            [
-                                    libs.androidx.room.room_compiler,
-                            ],
+                    kapt           : [],
             ]
 
     // module.build.gradle

@@ -1,14 +1,8 @@
 package com.hzsoft.module.me.fragment
 
 import android.view.View
-import com.blankj.utilcode.util.LogUtils
-import com.google.gson.Gson
-import com.hzsoft.lib.base.utils.ToastUtil
-import com.hzsoft.lib.base.utils.ext.view.showToast
 import com.hzsoft.lib.base.view.BaseMvvmViewBindingFragment
 import com.hzsoft.module.me.R
-import com.hzsoft.module.me.activity.RoomTestActivity
-import com.hzsoft.module.me.activity.SaveStateTestActivity
 import com.hzsoft.module.me.databinding.FragmentMeMainBinding
 import com.hzsoft.module.me.viewmodel.MainMeViewModel
 

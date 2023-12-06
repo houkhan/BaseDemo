@@ -19,12 +19,6 @@ ext {
                                             fragment: 'androidx.fragment:fragment:1.5.4',
                                             ktx     : 'androidx.fragment:fragment-ktx:1.5.4',
                                     ],
-                            room     :
-                                    [
-                                            core         : "androidx.room:room-runtime:2.4.3",
-                                            room_compiler: "androidx.room:room-compiler:2.4.3",
-                                            room_ktx     : "androidx.room:room-ktx:2.4.3",
-                                    ]
                     ],
             google           :
                     [
