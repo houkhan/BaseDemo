@@ -1,9 +1,5 @@
 apply from: "../lib.build.gradle"
 
-android {
-
-}
-
 dependencies {
     def Depends = [
             apis               : rootProject.ext.domainDepends.api,

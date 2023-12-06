@@ -1,6 +1,7 @@
 ext {
     apply from: 'lib_depends.gradle'
 
+    applicationId = "com.demo.mvvm"
     // 构建版本
     compileVersion = 33
     buildToolsVersion = "30.0.3"

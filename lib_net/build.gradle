@@ -1,9 +1,5 @@
 apply from: "../lib.build.gradle"
 
-android {
-
-}
-
 dependencies {
 
     api project(":lib_base")
