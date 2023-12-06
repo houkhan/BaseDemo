@@ -4,10 +4,10 @@ import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
 import com.alibaba.android.arouter.launcher.ARouter
+import com.hzsoft.lib.base.log.AppLogManager
 import com.hzsoft.lib.base.utils.ProcessUtils
 import com.hzsoft.lib.base.utils.ThreadUtils
 import com.hzsoft.lib.base.utils.ToastUtil
-import com.hzsoft.lib.log.KLog
 import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.ClassicsHeader
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
@@ -17,12 +17,12 @@ import com.scwang.smart.refresh.layout.SmartRefreshLayout
  * @author zhouhuan
  * @time 2020/11/30 23:04
  */
-open class BaseApplication : Application() {
+open class BaseApp : Application() {
 
     companion object {
-        const val TAG = "BaseApplication"
+        const val TAG = "BaseMvvmDemo"
 
-        lateinit var instance: BaseApplication
+        lateinit var instance: BaseApp
             private set
 
         @JvmStatic
@@ -52,7 +52,6 @@ open class BaseApplication : Application() {
     }
 
     override fun onTrimMemory(level: Int) {
-        // EventBus.getDefault().post(LowMemeryEvent(level))
         super.onTrimMemory(level)
     }
 
@@ -61,14 +60,9 @@ open class BaseApplication : Application() {
      * 主线程中初始化内容
      */
     protected open fun initOnlyMainProcess() {
-        KLog.init(BuildConfig.IS_DEBUG)
+        AppLogManager.init()
         ToastUtil.init(this)
-
-        if (BuildConfig.IS_DEBUG) {           // 这两行必须写在init之前，否则这些配置在init过程中将无效
-            ARouter.openLog()     // 打印日志
-            ARouter.openDebug()   // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
-        }
-        ARouter.init(this) // 尽可能早，推荐在Application中初始化
+        initARouter()
     }
 
     /**
@@ -83,7 +77,19 @@ open class BaseApplication : Application() {
         initSmartRefreshLayout()
     }
 
-    open fun initSmartRefreshLayout() {
+    private fun initARouter() {
+        if (BuildConfig.IS_DEBUG) {
+            // 这两行必须写在init之前，否则这些配置在init过程中将无效
+            // 打印日志
+            ARouter.openLog()
+            // 开启调试模式(如果在InstantRun模式下运行，必须开启调试模式！线上版本需要关闭,否则有安全风险)
+            ARouter.openDebug()
+        }
+        // 尽可能早，推荐在Application中初始化
+        ARouter.init(this)
+    }
+
+    private fun initSmartRefreshLayout() {
         //全局设置默认的 Header
         SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->
             layout.setPrimaryColorsId(R.color.white, R.color.color_666) //全局设置主题颜色

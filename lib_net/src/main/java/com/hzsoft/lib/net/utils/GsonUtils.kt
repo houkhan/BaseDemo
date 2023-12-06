@@ -1,12 +1,13 @@
 package com.hzsoft.lib.net.utils
 
+import com.blankj.utilcode.util.LogUtils
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonElement
 import com.google.gson.JsonArray
 import com.google.gson.JsonParser
 import com.google.gson.reflect.TypeToken
-import com.hzsoft.lib.log.KLog
+import com.hzsoft.lib.base.BaseApp
 import java.lang.Exception
 import java.lang.reflect.Type
 import java.util.ArrayList
@@ -43,7 +44,7 @@ object GsonUtils {
         try {
             return gson!!.fromJson(json, cls)
         } catch (e: Exception) {
-            KLog.e("GsonUtils", e.message ?: "")
+            LogUtils.eTag("GsonUtils", e.message ?: "")
         }
         return null
     }
@@ -113,7 +114,7 @@ object GsonUtils {
         try {
             return gson!!.fromJson(json, object : TypeToken<List<Map<String, T>>>() {}.type)
         } catch (e: Exception) {
-            KLog.e("", e.message ?: "")
+            LogUtils.eTag("", e.message ?: "")
         }
         return null
     }
@@ -126,7 +127,7 @@ object GsonUtils {
         try {
             return gson!!.fromJson(json, object : TypeToken<Map<String?, T>?>() {}.type)
         } catch (e: Exception) {
-            KLog.e("GsonUtils", e.message ?: "")
+            LogUtils.eTag("GsonUtils", e.message ?: "")
         }
         return null
     }

@@ -5,13 +5,14 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.alibaba.android.arouter.launcher.ARouter
+import com.blankj.utilcode.util.LogUtils
 import com.hzsoft.lib.base.module.constons.ARouteConstants
 import com.hzsoft.lib.base.utils.ThreadUtils
 import com.hzsoft.lib.base.view.BaseFragment
 import com.hzsoft.lib.base.view.BaseMvvmRefreshViewBindingActivity
 import com.hzsoft.lib.common.utils.VibrateTool
 import com.hzsoft.lib.common.widget.CommonDialogFragment
-import com.hzsoft.lib.log.KLog
+import com.hzsoft.lib.base.BaseApp
 import com.hzsoft.lib.net.dto.Resource
 import com.hzsoft.lib.net.local.entity.UserTestRoom
 import com.hzsoft.lib.net.utils.ext.observe
@@ -208,7 +209,7 @@ class RoomTestActivity : BaseMvvmRefreshViewBindingActivity<ActivityRoomTestBind
         when (status) {
             is Resource.Success -> status.data?.let { bindListData2(ArrayList(it)) }
             is Resource.DataError -> {
-                status.errorCode.let { KLog.e(BaseFragment.TAG, "--------->$it") }
+                status.errorCode.let { LogUtils.eTag(BaseFragment.TAG, "--------->$it") }
             }
 
             else -> {}

@@ -2,10 +2,10 @@ package com.hzsoft.lib.net.remote
 
 import android.text.TextUtils
 import android.util.Log
+import com.blankj.utilcode.util.LogUtils
 import com.hzsoft.lib.base.utils.ext.view.showToast
 import com.hzsoft.lib.domain.base.BaseResponse
 import com.hzsoft.lib.domain.entity.Demo
-import com.hzsoft.lib.log.KLog
 import com.hzsoft.lib.net.BuildConfig
 import com.hzsoft.lib.net.dto.Resource
 import com.hzsoft.lib.net.error.*
@@ -68,7 +68,7 @@ constructor(
              */
             if (BuildConfig.DEBUG) {
                 e.message?.showToast()
-                KLog.e(TAG, Log.getStackTraceString(e))
+                LogUtils.eTag(TAG, Log.getStackTraceString(e))
                 NETWORD_ERROR
             } else {
                 showToast(NETWORD_ERROR)

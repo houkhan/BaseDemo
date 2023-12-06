@@ -6,7 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.core.app.NotificationCompat
-import com.hzsoft.lib.base.BaseApplication
+import com.hzsoft.lib.base.BaseApp
 import com.hzsoft.lib.common.R
 
 /**
@@ -20,14 +20,14 @@ object PushNotificationHelper {
     /** 通知渠道-聊天消息(重要性级别-高：发出声音) */
     private val MESSAGE = NotificationCompatUtil.Channel(
         channelId = "MESSAGE",
-        name = BaseApplication.getContext().getString(R.string.channel_message),
+        name = BaseApp.getContext().getString(R.string.channel_message),
         importance = NotificationManager.IMPORTANCE_DEFAULT
     )
 
     /** 通知渠道-@提醒消息(重要性级别-紧急：发出提示音，并以浮动通知的形式显示 & 锁屏显示 & 振动0.25s )*/
     private val MENTION = NotificationCompatUtil.Channel(
         channelId = "MENTION",
-        name = BaseApplication.getContext().getString(R.string.channel_mention),
+        name = BaseApp.getContext().getString(R.string.channel_mention),
         importance = NotificationManager.IMPORTANCE_HIGH,
         lockScreenVisibility = NotificationCompat.VISIBILITY_PUBLIC,
         vibrate = longArrayOf(0, 250)
@@ -36,18 +36,18 @@ object PushNotificationHelper {
     /** 通知渠道-系统通知(重要性级别-中：无提示音) */
     private val NOTICE = NotificationCompatUtil.Channel(
         channelId = "NOTICE",
-        name = BaseApplication.getContext().getString(R.string.channel_notice),
+        name = BaseApp.getContext().getString(R.string.channel_notice),
         importance = NotificationManager.IMPORTANCE_LOW
     )
 
     /** 通知渠道-音视频通话(重要性级别-紧急：发出提示音，并以浮动通知的形式显示 & 锁屏显示 & 振动4s停2s再振动4s ) */
     private val CALL = NotificationCompatUtil.Channel(
         channelId = "CALL",
-        name = BaseApplication.getContext().getString(R.string.channel_call),
+        name = BaseApp.getContext().getString(R.string.channel_call),
         importance = NotificationManager.IMPORTANCE_HIGH,
         lockScreenVisibility = NotificationCompat.VISIBILITY_PUBLIC,
         vibrate = longArrayOf(0, 4000, 2000, 4000),
-        sound = Uri.parse("android.resource://" + BaseApplication.getContext().packageName + "/" + R.raw.iphone)
+        sound = Uri.parse("android.resource://" + BaseApp.getContext().packageName + "/" + R.raw.iphone)
     )
 
     /**

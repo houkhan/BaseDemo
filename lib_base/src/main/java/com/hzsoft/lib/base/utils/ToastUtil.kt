@@ -10,10 +10,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.StringRes
+import com.blankj.utilcode.util.LogUtils
 import com.google.android.material.snackbar.Snackbar
 import com.hzsoft.lib.base.BuildConfig
 import com.hzsoft.lib.base.R
-import com.hzsoft.lib.log.KLog
+import com.hzsoft.lib.base.BaseApp
 import java.lang.ref.WeakReference
 
 /**
@@ -94,7 +95,7 @@ object ToastUtil {
                 makeToast(message, duration)
             }
         } catch (e: Throwable) {
-            KLog.e(TAG, "Looper exception", e)
+            LogUtils.eTag(TAG, "Looper exception", e)
         }
     }
 
@@ -159,7 +160,7 @@ object ToastUtil {
                 makeToastCenter(message, duration)
             }
         } catch (e: Throwable) {
-            KLog.e(TAG, "Looper exception", e)
+            LogUtils.eTag(TAG, "Looper exception", e)
         }
     }
 

@@ -5,13 +5,12 @@ android {
 
 dependencies {
 
-    api project(":lib_log")
-
     def Depends = [
             apis               : rootProject.ext.baseDepends.api,
             implementations    : rootProject.ext.baseDepends.implementations,
             kapt               : rootProject.ext.baseDepends.kapt,
     ]
+
     Depends.apis.each { api it }
     Depends.implementations.each { implementation it }
     Depends.kapt.each { kapt it }

@@ -8,21 +8,21 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.text.PrecomputedTextCompat
 import androidx.core.widget.TextViewCompat
-import com.hzsoft.lib.base.BaseApplication
+import com.hzsoft.lib.base.BaseApp
 import com.hzsoft.lib.common.utils.ext.inputMethodManager
 
 /**
  * 显示软键盘
  */
 fun View.showKeyboard() {
-    BaseApplication.getContext().inputMethodManager?.showSoftInput(this, 0)
+    BaseApp.getContext().inputMethodManager?.showSoftInput(this, 0)
 }
 
 /**
  * 隐藏软键盘
  */
 fun View.hideKeyboard() {
-    BaseApplication.getContext().inputMethodManager?.hideSoftInputFromWindow(this.windowToken, 0)
+    BaseApp.getContext().inputMethodManager?.hideSoftInputFromWindow(this.windowToken, 0)
 }
 
 /**

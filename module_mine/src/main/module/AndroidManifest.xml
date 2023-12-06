@@ -4,7 +4,7 @@
 
 
     <application
-        android:name="debug.MeApplication"
+        android:name="debug.MeApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/module_mine"

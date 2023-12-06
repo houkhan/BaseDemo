@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.launcher.ARouter
+import com.blankj.utilcode.util.LogUtils
 import com.hzsoft.lib.base.R
 import com.hzsoft.lib.base.event.common.BaseActivityEvent
 import com.hzsoft.lib.base.mvvm.view.BaseView
@@ -20,7 +21,6 @@ import com.hzsoft.lib.base.widget.LoadingInitView
 import com.hzsoft.lib.base.widget.LoadingTransView
 import com.hzsoft.lib.base.widget.NetErrorView
 import com.hzsoft.lib.base.widget.NoDataView
-import com.hzsoft.lib.log.KLog
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -72,7 +72,7 @@ abstract class BaseActivity : AppCompatActivity(), BaseView {
         initListener()
 
         val totalTime = SystemClock.elapsedRealtime() - startTime
-        KLog.e(TAG, "onCreate: 当前进入的Activity: $localClassName 初始化时间:$totalTime ms")
+        LogUtils.eTag(TAG, "onCreate: 当前进入的Activity: $localClassName 初始化时间:$totalTime ms")
     }
 
     protected open fun initFullScreen() {

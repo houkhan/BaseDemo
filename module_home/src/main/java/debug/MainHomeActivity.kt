@@ -1,11 +1,12 @@
 package debug
 
+import com.blankj.utilcode.util.LogUtils
 import com.hzsoft.lib.base.utils.ThreadUtils
 import com.hzsoft.lib.base.view.BaseFragment
 import com.hzsoft.lib.base.view.BaseMvvmRefreshViewBindingActivity
 import com.hzsoft.lib.common.utils.EnvironmentUtil
 import com.hzsoft.lib.domain.entity.Demo
-import com.hzsoft.lib.log.KLog
+import com.hzsoft.lib.base.BaseApp
 import com.hzsoft.lib.net.dto.Resource
 import com.hzsoft.lib.net.utils.ext.launch
 import com.hzsoft.lib.net.utils.ext.observe
@@ -41,7 +42,7 @@ class MainHomeActivity : BaseMvvmRefreshViewBindingActivity<FragmentHomeMainBind
 
     override fun initData() {
         onRefreshEvent()
-        KLog.d(BaseFragment.TAG, EnvironmentUtil.Storage.getCachePath(mContext))
+        LogUtils.dTag(BaseFragment.TAG, EnvironmentUtil.Storage.getCachePath(mContext))
     }
 
     var firstLoad = true

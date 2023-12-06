@@ -2,7 +2,7 @@ package com.hzsoft.lib.base.utils
 
 import android.os.Build
 import android.text.TextUtils
-import com.hzsoft.lib.log.KLog.e
+import com.blankj.utilcode.util.LogUtils
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -97,7 +97,7 @@ object OsUtils {
             line = input.readLine()
             input.close()
         } catch (ex: IOException) {
-            e(TAG, "Unable to read prop $name", ex)
+            LogUtils.eTag(TAG, "Unable to read prop $name", ex)
             return null
         } finally {
             if (input != null) {

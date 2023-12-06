@@ -17,6 +17,7 @@ import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.launcher.ARouter
+import com.blankj.utilcode.util.LogUtils
 import com.hzsoft.lib.base.R
 import com.hzsoft.lib.base.event.common.BaseFragmentEvent
 import com.hzsoft.lib.base.mvvm.view.BaseView
@@ -25,7 +26,6 @@ import com.hzsoft.lib.base.widget.LoadingInitView
 import com.hzsoft.lib.base.widget.LoadingTransView
 import com.hzsoft.lib.base.widget.NetErrorView
 import com.hzsoft.lib.base.widget.NoDataView
-import com.hzsoft.lib.log.KLog
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -64,7 +64,7 @@ abstract class BaseFragment : Fragment(), BaseView {
     private lateinit var mViewStubNoData: ViewStub
     private lateinit var mViewStubError: ViewStub
     private var isViewCreated = false
-    private var isViewVisable = false
+    private var isViewVisible = false
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -77,7 +77,7 @@ abstract class BaseFragment : Fragment(), BaseView {
         mActivity = activity as AppCompatActivity?
 
         val totalTime = SystemClock.elapsedRealtime() - startTime
-        KLog.e(TAG, "onCreate: 当前进入的Fragment: $javaClass 初始化时间:$totalTime ms")
+        LogUtils.eTag(TAG, "onCreate: 当前进入的Fragment: $javaClass 初始化时间:$totalTime ms")
     }
 
     override fun onCreateView(
@@ -129,9 +129,9 @@ abstract class BaseFragment : Fragment(), BaseView {
      */
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
-        isViewVisable = isVisibleToUser
+        isViewVisible = isVisibleToUser
         //如果启用了懒加载就进行懒加载，
-        if (enableLazyData() && isViewVisable) {
+        if (enableLazyData() && isViewVisible) {
             lazyLoad()
         }
     }
@@ -146,15 +146,15 @@ abstract class BaseFragment : Fragment(), BaseView {
      */
     private fun lazyLoad() {
         //这里进行双重标记判断,必须确保onCreateView加载完毕且页面可见,才加载数据
-        KLog.v("MYTAG", "lazyLoad start...")
-        KLog.v("MYTAG", "isViewCreated:$isViewCreated")
-        KLog.v("MYTAG", "isViewVisable:$isViewVisable")
-        if (isViewCreated && isViewVisable) {
+        LogUtils.vTag(TAG, "lazyLoad start...")
+        LogUtils.vTag(TAG, "isViewCreated:$isViewCreated")
+        LogUtils.vTag(TAG, "isViewVisible:$isViewVisible")
+        if (isViewCreated && isViewVisible) {
             Log.d(TAG, "lazyLoad: Successful")
             initData()
             //数据加载完毕,恢复标记,防止重复加载
             isViewCreated = false
-            isViewVisable = false
+            isViewVisible = false
         } else {
             Log.d(TAG, "lazyLoad: Fail")
         }

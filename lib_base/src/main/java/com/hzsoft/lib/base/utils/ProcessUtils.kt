@@ -4,8 +4,8 @@ import android.app.ActivityManager
 import android.content.Context
 import android.os.Process
 import android.text.TextUtils
-import com.hzsoft.lib.base.BaseApplication
-import com.hzsoft.lib.log.KLog
+import com.blankj.utilcode.util.LogUtils
+import com.hzsoft.lib.base.BaseApp
 
 object ProcessUtils {
 
@@ -15,7 +15,7 @@ object ProcessUtils {
     private const val GET_PROCESS_NAME = "getProcessName"
 
     private val context: Context
-        get() = BaseApplication.getContext().applicationContext
+        get() = BaseApp.getContext().applicationContext
 
     val pid: Int
         get() = Process.myPid()
@@ -29,7 +29,7 @@ object ProcessUtils {
                 val context = context
                 val currentProcessName = processName
                 field = TextUtils.equals(currentProcessName, context.packageName)
-                KLog.d(TAG, "isMainProcess $field processName: $currentProcessName")
+                LogUtils.dTag(TAG, "isMainProcess $field processName: $currentProcessName")
             }
             return field
         }
@@ -48,9 +48,9 @@ object ProcessUtils {
                         ReflectUtils.invokeMethod(ACTIVITY_THREAD, CURRENT_ACTIVITY_THREAD)
                     currentProcessName =
                         ReflectUtils.invokeMethod(activityThread!!, GET_PROCESS_NAME) as String?
-                    KLog.d(TAG, "getProcessName from ActivityThread: $currentProcessName")
+                    LogUtils.dTag(TAG, "getProcessName from ActivityThread: $currentProcessName")
                 } catch (tr: Throwable) {
-                    KLog.e(TAG, "getProcessName error!", tr)
+                    LogUtils.eTag(TAG, "getProcessName error!", tr)
                 }
                 if (currentProcessName == null) {
                     val context = context
@@ -64,7 +64,7 @@ object ProcessUtils {
                     }
                 }
             } catch (e: Exception) {
-                KLog.e(TAG, "getProcessName error", e)
+                LogUtils.eTag(TAG, "getProcessName error", e)
             }
             return currentProcessName
         }

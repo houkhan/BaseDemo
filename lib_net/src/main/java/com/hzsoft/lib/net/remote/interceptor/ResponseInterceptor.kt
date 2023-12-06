@@ -1,8 +1,9 @@
 package com.hzsoft.lib.net.remote.interceptor
 
 import android.text.TextUtils
+import com.blankj.utilcode.util.LogUtils
 import com.hzsoft.lib.base.utils.ext.view.showToast
-import com.hzsoft.lib.log.KLog
+import com.hzsoft.lib.base.BaseApp
 import com.hzsoft.lib.net.config.Encoding
 import com.hzsoft.lib.net.config.contentTypeValue
 import com.hzsoft.lib.net.error.ApiException
@@ -42,7 +43,7 @@ class ResponseInterceptor : Interceptor {
             val ex = ApiException(response.code)
             ex.message = errorManager.getError(response.code).description
             ex.message.showToast()
-            KLog.e(TAG, ex.message, ex)
+            LogUtils.eTag(TAG, ex.message, ex)
             throw ex
         }
 

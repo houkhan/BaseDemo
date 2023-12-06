@@ -53,7 +53,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
-import com.hzsoft.lib.base.BaseApplication;
+import com.hzsoft.lib.base.BaseApp;
 
 import java.io.InputStream;
 import java.io.Serializable;
@@ -1098,7 +1098,7 @@ public final class SpannableStringUtils {
         @Override
         public void chooseHeight(final CharSequence text, final int start, final int end,
                                  final int spanstartv, final int v, final Paint.FontMetricsInt fm) {
-//            LogUtils.e(fm, sfm);
+//            LogUtils.eTag(fm, sfm);
             if (sfm == null) {
                 sfm = new Paint.FontMetricsInt();
                 sfm.top = fm.top;
@@ -1138,7 +1138,7 @@ public final class SpannableStringUtils {
             if (end == ((Spanned) text).getSpanEnd(this)) {
                 sfm = null;
             }
-//            LogUtils.e(fm, sfm);
+//            LogUtils.eTag(fm, sfm);
         }
     }
 
@@ -1312,7 +1312,7 @@ public final class SpannableStringUtils {
 
         private CustomImageSpan(final Bitmap b, final int verticalAlignment) {
             super(verticalAlignment);
-            mDrawable = new BitmapDrawable(BaseApplication.getContext().getResources(), b);
+            mDrawable = new BitmapDrawable(BaseApp.getContext().getResources(), b);
             mDrawable.setBounds(
                     0, 0, mDrawable.getIntrinsicWidth(), mDrawable.getIntrinsicHeight()
             );
@@ -1345,9 +1345,9 @@ public final class SpannableStringUtils {
                 Bitmap bitmap;
                 try {
                     InputStream is =
-                            BaseApplication.getContext().getContentResolver().openInputStream(mContentUri);
+                            BaseApp.getContext().getContentResolver().openInputStream(mContentUri);
                     bitmap = BitmapFactory.decodeStream(is);
-                    drawable = new BitmapDrawable(BaseApplication.getContext().getResources(), bitmap);
+                    drawable = new BitmapDrawable(BaseApp.getContext().getResources(), bitmap);
                     drawable.setBounds(
                             0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight()
                     );
@@ -1359,7 +1359,7 @@ public final class SpannableStringUtils {
                 }
             } else {
                 try {
-                    drawable = ContextCompat.getDrawable(BaseApplication.getContext(), mResourceId);
+                    drawable = ContextCompat.getDrawable(BaseApp.getContext(), mResourceId);
                     drawable.setBounds(
                             0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight()
                     );
@@ -1399,7 +1399,7 @@ public final class SpannableStringUtils {
             Drawable d = getCachedDrawable();
             Rect rect = d.getBounds();
             if (fm != null) {
-//                LogUtils.d("fm.top: " + fm.top,
+//                LogUtils.dTag("fm.top: " + fm.top,
 //                        "fm.ascent: " + fm.ascent,
 //                        "fm.descent: " + fm.descent,
 //                        "fm.bottom: " + fm.bottom,
@@ -1432,7 +1432,7 @@ public final class SpannableStringUtils {
             canvas.save();
             float transY;
             int lineHeight = bottom - top;
-//            LogUtils.d("rectHeight: " + rect.height(),
+//            LogUtils.dTag("rectHeight: " + rect.height(),
 //                    "lineHeight: " + (bottom - top));
             if (rect.height() < lineHeight) {
                 if (mVerticalAlignment == ALIGN_TOP) {

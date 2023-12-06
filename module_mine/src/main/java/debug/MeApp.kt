@@ -1,6 +1,6 @@
 package debug
 
-import com.hzsoft.lib.base.module.ModuleApplication
+import com.hzsoft.lib.base.module.ModuleApp
 
 /**
  *
@@ -8,7 +8,7 @@ import com.hzsoft.lib.base.module.ModuleApplication
  * @author zhouhuan
  * @Data 2020/12/3
  */
-class MeApplication : ModuleApplication() {
+class MeApp : ModuleApp() {
     override fun onCreate() {
         super.onCreate()
 

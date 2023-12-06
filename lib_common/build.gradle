@@ -7,7 +7,6 @@ android {
 dependencies {
 
     api project(":lib_base")
-    api project(":lib_log")
     api project(":lib_net")
     api project(":lib_image_picker")
 
@@ -17,6 +16,7 @@ dependencies {
             kapt               : rootProject.ext.commonDepends.kapt,
             debugApi           : rootProject.ext.commonDepends.debugApi,
     ]
+
     Depends.apis.each { api it }
     Depends.implementations.each { implementation it }
     Depends.kapt.each { kapt it }

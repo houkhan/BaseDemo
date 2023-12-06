@@ -12,6 +12,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringDef
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
+import com.blankj.utilcode.util.LogUtils
 import com.google.android.material.tabs.TabLayout
 import com.hzsoft.lib.base.utils.ToastUtil
 import com.hzsoft.lib.common.R
@@ -20,7 +21,7 @@ import com.hzsoft.lib.common.utils.VibrateTool
 import com.hzsoft.lib.common.utils.ext.getCompatColor
 import com.hzsoft.lib.common.utils.ext.loadImgFile
 import com.hzsoft.lib.common.utils.ext.view.toVisibleOrGone
-import com.hzsoft.lib.log.KLog
+import com.hzsoft.lib.base.BaseApp
 import kotlinx.coroutines.*
 import java.io.File
 
@@ -58,14 +59,14 @@ class TabBarView(context: Context, attrs: AttributeSet?) : RelativeLayout(contex
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             var firstSelected = true
             override fun onTabReselected(tab: TabLayout.Tab?) {
-                KLog.d(
+                LogUtils.dTag(
                     TAG,
                     "[TabBarView]: onTabReselected:${tab?.position}, from:${tab.toString()}"
                 )
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
-                KLog.d(
+                LogUtils.dTag(
                     TAG,
                     "[TabBarView]: onTabUnselected:${tab?.position}, from::${tab.toString()}"
                 )
@@ -77,7 +78,7 @@ class TabBarView(context: Context, attrs: AttributeSet?) : RelativeLayout(contex
             }
 
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                KLog.d(TAG, "[TabBarView]: onTabSelected:${tab?.position}, from::${tab.toString()}")
+                LogUtils.dTag(TAG, "[TabBarView]: onTabSelected:${tab?.position}, from::${tab.toString()}")
                 tab?.let {
                     val tabBarItemView = tab.customView as TabBarItemView
                     val listBean = tab.tag as? TabBarBean.ItemBean ?: return
@@ -135,7 +136,7 @@ class TabBarView(context: Context, attrs: AttributeSet?) : RelativeLayout(contex
             items.also { tabs ->
                 if (tabs.size !in 2..5) {
                     ToastUtil.showToastCenter("Tab bar view numbers is between 2 and 5")
-                    KLog.e(TAG, "[TabBarView]: Tab bar view is between 2 and 5")
+                    LogUtils.eTag(TAG, "[TabBarView]: Tab bar view is between 2 and 5")
                     return
                 }
                 tabs.forEach { tab ->

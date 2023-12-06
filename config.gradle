@@ -1,6 +1,6 @@
 ext {
     apply from: 'lib_depends.gradle'
-    
+
     // 构建版本
     compileVersion = 33
     buildToolsVersion = "30.0.3"
@@ -29,6 +29,7 @@ ext {
                                     libs.shimmerlayout,
                                     libs.eventbus,
                                     libs.autosize,
+                                    libs.utilcodex,
                             ],
                     implementations: [],
                     kapt           : [],

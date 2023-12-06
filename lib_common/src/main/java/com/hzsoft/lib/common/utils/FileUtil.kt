@@ -8,7 +8,7 @@ import android.os.storage.StorageManager
 import android.text.TextUtils
 import android.util.Base64
 import android.util.Log
-import com.hzsoft.lib.base.BaseApplication
+import com.hzsoft.lib.base.BaseApp
 import com.hzsoft.lib.common.BuildConfig
 import com.hzsoft.lib.common.utils.ext.canListFiles
 import java.io.File
@@ -40,7 +40,7 @@ object FileUtil {
             return storagePath
         }
         if (!BuildConfig.DEBUG) {
-            val storagePath = getStoragePath(BaseApplication.getContext(), true)
+            val storagePath = getStoragePath(BaseApp.getContext(), true)
             if (!TextUtils.isEmpty(storagePath)) {
                 return storagePath.also {
                     FileUtil.storagePath = it

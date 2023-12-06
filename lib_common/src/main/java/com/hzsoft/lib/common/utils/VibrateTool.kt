@@ -2,7 +2,7 @@ package com.hzsoft.lib.common.utils
 
 import android.content.Context
 import android.os.Vibrator
-import com.hzsoft.lib.base.BaseApplication
+import com.hzsoft.lib.base.BaseApp
 
 /**
  * 手机振动
@@ -21,7 +21,7 @@ object VibrateTool {
     @JvmStatic
     fun vibrateOnce(millisecond: Int) {
         vibrator =
-            BaseApplication.getContext().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+            BaseApp.getContext().getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
         vibrator!!.vibrate(millisecond.toLong())
     }
 

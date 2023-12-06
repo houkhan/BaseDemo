@@ -1,6 +1,6 @@
 package com.hzsoft.lib.common.utils
 
-import com.hzsoft.lib.base.BaseApplication
+import com.hzsoft.lib.base.BaseApp
 import java.lang.ref.WeakReference
 
 /**
@@ -14,7 +14,7 @@ import java.lang.ref.WeakReference
  * @time 2020/11/30 23:09
  */
 object DisplayUtil {
-    private val context = WeakReference(BaseApplication.instance.applicationContext)
+    private val context = WeakReference(BaseApp.instance.applicationContext)
 
     /**
      * 将px值转换为dip或dp值，保证尺寸大小不变

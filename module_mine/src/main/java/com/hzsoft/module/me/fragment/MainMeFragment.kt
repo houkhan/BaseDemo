@@ -1,11 +1,12 @@
 package com.hzsoft.module.me.fragment
 
 import android.view.View
+import com.blankj.utilcode.util.LogUtils
 import com.google.gson.Gson
 import com.hzsoft.lib.base.utils.ToastUtil
 import com.hzsoft.lib.base.utils.ext.view.showToast
 import com.hzsoft.lib.base.view.BaseMvvmViewBindingFragment
-import com.hzsoft.lib.log.KLog
+import com.hzsoft.lib.base.BaseApp
 import com.hzsoft.module.me.R
 import com.hzsoft.module.me.activity.RoomTestActivity
 import com.hzsoft.module.me.activity.SaveStateTestActivity
@@ -45,7 +46,7 @@ class MainMeFragment : BaseMvvmViewBindingFragment<FragmentMeMainBinding, MainMe
         imagePickerHelper = ImagePickerHelper(
             activity, requireBinding().gridLayout,
             { items ->
-                KLog.d(TAG, "选择的照片数据" + Gson().toJson(items))
+                LogUtils.dTag(TAG, "选择的照片数据" + Gson().toJson(items))
             }, config
         )
     }

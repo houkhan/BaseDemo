@@ -74,5 +74,6 @@ ext {
             eventbus         : "org.greenrobot:eventbus:3.3.1",
             leakcanary       : "com.squareup.leakcanary:leakcanary-android:2.10",
             autosize         : "me.jessyan:autosize:1.2.1",
+            utilcodex        : "com.blankj:utilcodex:1.31.1",
     ]
 }

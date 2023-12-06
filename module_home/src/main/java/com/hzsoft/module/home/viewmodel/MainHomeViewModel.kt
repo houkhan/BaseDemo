@@ -6,7 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.viewModelScope
 import com.hzsoft.lib.base.mvvm.viewmodel.BaseRefreshViewModel
 import com.hzsoft.lib.domain.entity.Demo
-import com.hzsoft.lib.log.KLog
+import com.hzsoft.lib.base.BaseApp
 import com.hzsoft.lib.net.dto.Resource
 import com.hzsoft.lib.net.local.entity.UserTestRoom
 import com.hzsoft.lib.net.utils.toJson
@@ -54,7 +54,7 @@ class MainHomeViewModel(state: SavedStateHandle) : BaseRefreshViewModel() {
             }
             // 单个请求示例
             /*homeDataRepository.requestRecipes().collect {
-                KLog.d(TAG, it.toJson())
+                LogUtils.dTag(TAG, it.toJson())
             }*/
         }
     }

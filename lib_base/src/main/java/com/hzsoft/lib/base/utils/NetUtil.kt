@@ -3,7 +3,7 @@ package com.hzsoft.lib.base.utils
 import android.content.Context
 import android.net.ConnectivityManager
 
-import com.hzsoft.lib.base.BaseApplication
+import com.hzsoft.lib.base.BaseApp
 
 
 /**
@@ -15,7 +15,7 @@ object NetUtil {
 
     @JvmStatic
     fun checkNet(): Boolean {
-        val context = BaseApplication.instance
+        val context = BaseApp.instance
         return isWifiConnection(context) || isStationConnection(context)
     }
 

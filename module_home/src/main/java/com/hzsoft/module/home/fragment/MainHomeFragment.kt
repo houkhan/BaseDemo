@@ -2,12 +2,13 @@ package com.hzsoft.module.home.fragment
 
 import android.view.View
 import android.view.animation.AnimationUtils
+import com.blankj.utilcode.util.LogUtils
 import com.hzsoft.lib.base.utils.ThreadUtils
 import com.hzsoft.lib.base.utils.ext.view.showToast
 import com.hzsoft.lib.base.view.BaseMvvmRefreshViewBindingFragment
 import com.hzsoft.lib.common.utils.EnvironmentUtil
 import com.hzsoft.lib.domain.entity.Demo
-import com.hzsoft.lib.log.KLog
+import com.hzsoft.lib.base.BaseApp
 import com.hzsoft.lib.net.dto.Resource
 import com.hzsoft.lib.net.utils.ext.launch
 import com.hzsoft.lib.net.utils.ext.observe
@@ -52,7 +53,7 @@ class MainHomeFragment :
 
     override fun initData() {
         onRefreshEvent()
-        KLog.d(TAG, EnvironmentUtil.Storage.getCachePath(mContext))
+        LogUtils.dTag(TAG, EnvironmentUtil.Storage.getCachePath(mContext))
     }
 
     var firstLoad = true

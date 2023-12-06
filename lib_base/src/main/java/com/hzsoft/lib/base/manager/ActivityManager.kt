@@ -5,8 +5,8 @@ import android.app.Application.ActivityLifecycleCallbacks
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import com.hzsoft.lib.base.BaseApplication
-import com.hzsoft.lib.log.KLog
+import com.blankj.utilcode.util.LogUtils
+import com.hzsoft.lib.base.BaseApp
 import java.util.*
 import kotlin.system.exitProcess
 
@@ -180,7 +180,7 @@ open class ActivityManager : ActivityLifecycleCallbacks {
      */
     fun back2App(activity: Activity) {
         isRunInBackground = false
-        KLog.d(
+        LogUtils.dTag(
             TAG,
             "当前栈剩余：${activityStack.size} 已经重新回到App。"
         )
@@ -193,7 +193,7 @@ open class ActivityManager : ActivityLifecycleCallbacks {
      */
     open fun leaveApp(activity: Activity) {
         isRunInBackground = true
-        KLog.d(
+        LogUtils.dTag(
             TAG,
             "当前栈剩余：${activityStack.size} 正在离开App。"
         )
@@ -217,9 +217,9 @@ open class ActivityManager : ActivityLifecycleCallbacks {
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
         //检测异常重启
         if (isActivityStackEmpty) {
-            val packageName: String = BaseApplication.getContext().packageName
+            val packageName: String = BaseApp.getContext().packageName
             val launchIntent: Intent? =
-                BaseApplication.getContext().packageManager.getLaunchIntentForPackage(packageName)
+                BaseApp.getContext().packageManager.getLaunchIntentForPackage(packageName)
             if (launchIntent != null
                 && launchIntent.component != null
                 && !activity.javaClass.name.equals(
@@ -227,7 +227,7 @@ open class ActivityManager : ActivityLifecycleCallbacks {
                     ignoreCase = true
                 )
             ) {
-                KLog.i(
+                LogUtils.iTag(
                     "onActivityCreated",
                     activity.javaClass.name + "====" + launchIntent.component?.className
                 )
@@ -243,14 +243,14 @@ open class ActivityManager : ActivityLifecycleCallbacks {
             }
         }
         addActivity(activity)
-        KLog.d(
+        LogUtils.dTag(
             TAG,
             "当前栈剩余：${activityStack.size} 页面 onCreated：${activity.javaClass.name}"
         )
     }
 
     override fun onActivityStarted(activity: Activity) {
-        KLog.d(
+        LogUtils.dTag(
             TAG,
             "当前栈剩余：${activityStack.size} 页面 onStarted：${activity.javaClass.name}"
         )
@@ -262,21 +262,21 @@ open class ActivityManager : ActivityLifecycleCallbacks {
     }
 
     override fun onActivityResumed(activity: Activity) {
-        KLog.d(
+        LogUtils.dTag(
             TAG,
             "当前栈剩余：${activityStack.size} 页面 onResumed：${activity.javaClass.name}"
         )
     }
 
     override fun onActivityPaused(activity: Activity) {
-        KLog.d(
+        LogUtils.dTag(
             TAG,
             "当前栈剩余：${activityStack.size} 页面 onPaused：${activity.javaClass.name}"
         )
     }
 
     override fun onActivityStopped(activity: Activity) {
-        KLog.d(
+        LogUtils.dTag(
             TAG,
             "当前栈剩余：${activityStack.size} 页面 onStopped：${activity.javaClass.name}"
         )
@@ -292,7 +292,7 @@ open class ActivityManager : ActivityLifecycleCallbacks {
 
     override fun onActivityDestroyed(activity: Activity) {
         removeActivity(activity)
-        KLog.d(
+        LogUtils.dTag(
             TAG,
             "当前栈剩余：${activityStack.size} 页面 onDestroyed：${activity.javaClass.name}"
         )
